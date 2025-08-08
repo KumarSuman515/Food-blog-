@@ -1,0 +1,245 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(#282c34, #282c34);
+  position: relative;
+  overflow: hidden;
+}
+
+.formContainer {
+  position: relative;
+  width: 100%;
+  max-width: 28rem;
+  z-index: 10;
+}
+
+.backgroundBlob {
+  position: absolute;
+  width: 18rem;
+  height: 18rem;
+  border-radius: 50%;
+  mix-blend-mode: multiply;
+  filter: blur(24px);
+  opacity: 0.7;
+  animation: blob 7s infinite;
+}
+
+.blob1 {
+  composes: backgroundBlob;
+  top: -1rem;
+  left: -1rem;
+  background: radial-gradient(#282c34, #282c34);
+}
+
+.blob2 {
+  composes: backgroundBlob;
+  top: -1rem;
+  right: -1rem;
+  background-color: #818cf8;
+  animation-delay: 2s;
+}
+
+.blob3 {
+  composes: backgroundBlob;
+  bottom: -2rem;
+  left: 5rem;
+  background-color: #c084fc;
+  animation-delay: 4s;
+}
+
+.signupCard {
+  position: relative;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.iconContainer {
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(135deg, #f97316 0%, #eab308 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
+  color: white;
+}
+
+.title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #6b7280;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.inputContainer {
+  position: relative;
+}
+
+.inputIcon {
+  position: absolute;
+  top: 50%;
+  left: 0.75rem;
+  transform: translateY(-50%);
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #9ca3af;
+  pointer-events: none;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(4px);
+  transition: all 0.2s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: transparent;
+  box-shadow: 0 0 0 2px #f97316;
+}
+
+.input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.helpText {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+.submitButton {
+  width: 100%;
+  background: linear-gradient(135deg, #f97316 0%, #eab308 100%);
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  transform: scale(1);
+}
+
+.submitButton:hover:not(:disabled) {
+  background: linear-gradient(135deg, #ea580c 0%, #ca8a04 100%);
+  transform: scale(1.02);
+}
+
+.submitButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #f97316, 0 0 0 4px rgba(249, 115, 22, 0.2);
+}
+
+.submitButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.loadingSpinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  margin-right: 0.75rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: white;
+}
+
+.footer {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.footerText {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.footerLink {
+  font-weight: 500;
+  color: #f97316;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footerLink:hover {
+  color: #ea580c;
+}
+
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .signupCard {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+  .backgroundBlob {
+    width: 12rem;
+    height: 12rem;
+  }
+}
